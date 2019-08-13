@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+
+<body>
+  <h1>Olivia's Tic-Tac-Toe</h1>
+
+  <canvas id="gamecanvas" width="400" height="400"></canvas>
+  <script type="text/javascript">
+    window.onload = function(){
+    var player = 2;
+    var imageX = new Image;
+    imageX.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAdVBMVEX///8AAAAiIiL19fX5+fnx8fG+vr7GxsYXFxfn5+fCwsJ7e3vw8PCGhoa7u7vg4ODOzs5wcHBnZ2fV1dUKCgqMjIwpKSl+fn5gYGBAQECsrKxaWlqSkpIPDw8hISGcnJxPT085OTmwsLAxMTFJSUmbm5ulpaXfP1qqAAAExklEQVR4nO3da1viMBAFYIGiqHhHvKKgrv//J+5mMYo9vWWSNjM85/0o0Ge6HielTbIHB0REREREREREREREREREREREREREREREREREROqcLca/jU5iDrd++X20l9VxqkrFZqOyQn6wZzjYY7pKpW6gqGvxsS7gWOtkdUY4g7LOpYfawKHyZ/SfYlkuazaRHQkz+pa2VKlLKOxKdBzM+33iSsUS5RQzOk9dqdh7ubTFNPwgt1oz6qTIFx7jqYdKxe6gvMPQQ0C/UpRRB3IaWl/CMacfseM+9mP5dUNPsE+E/A4KyICC69ESrHERkFPMqKI+6sX0U8yomrF+V0ROF/BR4XVfz7Cfdhz3T+X/NsOS5vQIPqeuj3qy6y78bhLSowa2gVPsUKuZjDqSnBrKqBOe02IFH9HZR71xaL1X8IHga/ZhhX4HOrGVUSfsfuAU7kVK7/EM6KFc86LhGtpcRp2QfnoI75XdwxpY9346sXI9Wtb5+/49vPFo2Eqlut6bP7eZUadbP51DRg30UQ/6adXzh2t4U9RzuWF1Gfff4D2nGSoVa8/pHN4xjnjumEFrTs32Ua+tn2JGzfRRrzmnU3g15tl4Jo05fYIXL/NVKoU5/emnj/DaXcZKxf7AaXx+vXIMryztjPW7anOKGTXWR726fooZNTXW76rOKY71q9yFylXmdA0/NNhHvaqcfsLPznKXGQNzegf3npb2xvpdH3CK+5RRB3O6Vxl1XltOcJy7wHib5jO8yV1fvOacms+og8PDj/fcxaWBQ/w3433Uq8/pbe7SUqnrp8vchaWD16f/XeSuKx38yrtXGXXw3uFotMldVEo4b220F2P9t6LqBFd6pwWFw2fZjqpp3HFwvsWWwimkMhOco/7F5i1EhPPWPJXTZMPhvLV9y2nDCSqcri5Q3Uc99VO82jVl1FE8lbSbyUvLGZrvp/V91DPeTzGjODaazinO/13M4aviTLBUUQ3soycVU23MTVH4gRl1J4NTFw1MKa2GfXQ7bw2XqVntp9hHt7+slFsUZFWdUQeX4pl8jF/Ac8LFdxhhyDCZ06o+6qXaoiCr5rU+mFNDU0u3Cuijv4KIy9XG1nJa10c9zKmxKTV476n8h4ZbFJjqp3Vj/S6MsaUpGW0ZdUzntNv+CIZzWnEPvyqABSxVNDN1qGms34VDppFptPXXo2X452risT7ew5/VPmSCM5wNWalUyNpz/HUbmF7TPaOOxZxCyY3rKPDS4F17P+0y1u/CZbLKpy+E74+AQ4vqx/sTGMRb10zi5YHqaUShGXXwa4jifhrWRz1cSqo2p3jvqdODpSnc+lc7lUi6PwIu6X7uuVIh+T4zRnJa8b2+60OlKSxbV5nTmL2QTORU1kc9XK6nbuqpsI96uCxYXU5j95lRn9P4/bqU91O8hx+8jzDOk/7opVShFHvK4dLZ1x4qFWq/h9+F4n5a8Z1JMoEElwc/JC9VKNW+h7hVhpKcpts/VmlOi3T7dSntp5Lv9XWwn362f6hvcdejZbiOL/sk4pB7+B1gTrP309T7x+J608w5Tb9/rLacQjnReyEp+790+tjjWFVO+9njGPeZyJbTiv1jUyy4UzruExERERERERERERERERERERHtgb8m6TBKrno8AQAAAABJRU5ErkJggg==';
+    var imageO = new Image;
+    imageO.src = 'data:image/png;base64,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';
+    var didWon = [-1, -1, -1, -1, -1, -1, -1, -1, -1];
+    //loads canvas
+    canvas = document.getElementById("gamecanvas");
+    context = canvas.getContext("2d");
+
+
+    //draws game board
+    context.fillStyle = "black";
+    context.fillRect(0, 126, 400, 10);
+    context.fillRect(126, 0, 10, 400);
+    context.fillRect(0, 252, 400, 10);
+    context.fillRect(252, 0, 10, 400);
+
+    //Functions to play game and draw x and o
+    function drawXO(player,X,Y){
+      if(player % 2 == 0){
+        context.drawImage(imageX,X,Y, 100,100);
+      }else{
+        context.drawImage(imageO,X,Y, 80,80);
+      }
+    }//end of drawXO function
+
+    function playGame(event){
+      if(event.pageX <= 130 & event.pageY <=205){
+        if(didWon[0] == -1){
+          drawXO(player, 10, 10);
+          didWon[0] = player%2;
+          player +=1;
+        }else{
+          alert("seriously?? everyone does this!!");
+        }
+      }//end of if for box1
+      if(event.pageX > 142 & event.pageX <= 260 & event.pageY <=205){
+        if(didWon[1] == -1){
+            drawXO(player, 140, 10);
+            didWon[1] = player%2;
+            player +=1;
+        }else{
+          alert("why do you not leave peoples boxes alone?");
+        }
+      }//end of if for box2
+      if(event.pageX > 272 & event.pageY <=205){
+        if(didWon[2] == -1){
+          drawXO(player, 270, 10);
+          didWon[2]  = player%2;
+          player+=1;
+        }else{
+          alert("Chose a different location dude!!!");
+        }
+      }//end of if for box3
+      if(event.pageX <= 130 & event.pageY > 217 & event.pageY <= 325){
+        if(didWon[3] == -1){
+          drawXO(player, 10, 140);
+          didWon[3]  = player%2;
+          player+=1;
+        }else{
+          alert("Chose a different location!!");
+        }
+      }//end of if for box4
+      if(event.pageX > 142 & event.pageX <= 260 & event.pageY > 217 & event.pageY <= 325){
+        if(didWon[4] == -1){
+          drawXO(player, 140, 140);
+          didWon[4]  = player%2;
+          player+=1;
+        }else{
+          alert("This box has already been chosen. Too late");
+        }
+      }//end of if for box5
+      if(event.pageX > 272 & event.pageY > 217 & event.pageY <= 325){
+        if(didWon[5] == -1){
+          drawXO(player, 270, 140);
+          didWon[5]  = player%2;
+          player+=1;
+        }else{
+          alert("This box has already been chosen. Too late dude!!!");
+        }
+      }//end of if for box6
+      if(event.pageX <= 130 & event.pageY > 337){
+        if(didWon[6] == -1){
+          drawXO(player, 10, 270);
+          didWon[6] = player%2;
+          player+=1;
+        }else{
+          alert("oh noes!!");
+        }
+      }//end of if for box7
+      if(event.pageX > 142 & event.pageX <= 260 & event.pageY > 337){
+        if(didWon [7] == -1){
+          drawXO(player, 140, 270);
+          didWon[7]  = player%2;
+          player+=1;
+      }else{
+        alert("the other player chose this box not you");
+      }
+      }//end of if for box8
+      if(event.pageX > 272 & event.pageY > 337){
+        if(didWon [8] == -1){
+          drawXO(player, 270, 270);
+          didWon[8] = player%2;
+          player+=1;
+        }else{
+        alert("really? you know better than to take peoples boxes!!");
+        }
+      }//end of if for box9
+    }//playgame function
+
+    //plays game
+    canvas.addEventListener("mousedown", playGame);
+
+
+}//window.onload function
+
+
+  </script>
+</body>
+</html>
