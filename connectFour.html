@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>connect four</title>
+    <!--styles-->
+    <style>
+    h1 {
+        color: red;
+        text-align: center;
+        background-color: purple;
+      }
+      body {
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Olivia's Connect Four</h1>
+    <canvas id="gamecanvas" width="400" height="400"></canvas>
+    <script type="text/javascript">
+
+      window.onload = function(){
+        var player = 2;
+        var imageR = new Image;
+        imageR.src = 'https://p1.hiclipart.com/preview/867/842/492/recursos-texturas-cosas-red-circles-illustration-png-clipart-thumbnail.jpg';
+        var imageY = new Image;
+        imageY.src = 'https://clipartart.com/images/yellow-circle-png-clipart-1.jpg';
+        var didWon = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1];
+
+        canvas = document.getElementById("gamecanvas");
+        context = canvas.getContext("2d");
+
+        context.fillStyle = "black";
+        context.fillRect(0, 126, 400, 10);
+        context.fillRect(126, 0, 10, 400);
+        context.fillRect(0, 252, 400, 10);
+        context.fillRect(252, 0, 10, 400);
+        //draws game board
+        context.fillStyle = "red";
+        context.fillRect(10, 100, 40, 40);
+        //for(var x = 50; x <= 300; x += 30){
+         //context.fill(255, 0, 0);
+         //context.ellipse(x, 100, 40, 40);
+      //};
+
+      }
+      <h2>did it get here?</h2>
+  </body>
+</html>
