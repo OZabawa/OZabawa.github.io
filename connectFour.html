@@ -4,7 +4,6 @@
   <head>
     <meta charset="utf-8">
     <title>connect four</title>
-    <!--styles-->
     <style>
     h1 {
         color: red;
@@ -14,38 +13,69 @@
       body {
         background-color: blue;
       }
+      canvas {
+        background-color: lightblue:
+      }
     </style>
   </head>
   <body>
     <h1>Olivia's Connect Four</h1>
-    <canvas id="gamecanvas" width="400" height="400"></canvas>
+    <canvas id="gamecanvas" width="700" height="700"></canvas>
     <script type="text/javascript">
-
       window.onload = function(){
         var player = 2;
         var imageR = new Image;
-        imageR.src = 'https://p1.hiclipart.com/preview/867/842/492/recursos-texturas-cosas-red-circles-illustration-png-clipart-thumbnail.jpg';
+        imageR.src = 'https://i7.pngguru.com/preview/323/285/254/red-sphere-circle-magenta-red-shapes.jpg';
         var imageY = new Image;
-        imageY.src = 'https://clipartart.com/images/yellow-circle-png-clipart-1.jpg';
+        imageY.src = 'data:image/png;base64,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';
         var didWon = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1];
 
         canvas = document.getElementById("gamecanvas");
         context = canvas.getContext("2d");
 
-        context.fillStyle = "black";
-        context.fillRect(0, 126, 400, 10);
-        context.fillRect(126, 0, 10, 400);
-        context.fillRect(0, 252, 400, 10);
-        context.fillRect(252, 0, 10, 400);
         //draws game board
-        context.fillStyle = "red";
-        context.fillRect(10, 100, 40, 40);
-        //for(var x = 50; x <= 300; x += 30){
-         //context.fill(255, 0, 0);
-         //context.ellipse(x, 100, 40, 40);
-      //};
+        var x;
+        for(x = 50; x <= 700; x += 100){
+         context.ellipse(x, 50, 40, 40, Math.PI / 2, 0, 2 * Math.PI);
+         context.stroke();
+
+      };
+      x = 50;
+        while(x <= 700){
+          context.ellipse(x, 150, 40, 40, Math.PI / 2, 0, 2 * Math.PI);
+          context.stroke();
+          x += 100;
+    };
+        for(x = 50; x <= 700; x += 100){
+          context.ellipse(x, 250, 40, 40, Math.PI / 2, 0, 2 * Math.PI);
+          context.stroke();
+    };
+        for(x = 50; x <= 700; x += 100){
+          context.ellipse(x, 350, 40, 40, Math.PI / 2, 0, 2 * Math.PI);
+          context.stroke();
+  };
+        for(x = 50; x <= 700; x += 100){
+          context.ellipse(x, 450, 40, 40, Math.PI / 2, 0, 2 * Math.PI);
+          context.stroke();
+        };
+        for(x = 50; x <= 700; x += 100){
+         context.ellipse(x, 550, 40, 40, Math.PI / 2, 0, 2 * Math.PI);
+         context.stroke();
+       };
+       //Functions to play game and draw Circles
+       function drawXO(player,X,Y){
+         if(player % 2 == 0){
+           context.drawImage(imageX,X,Y, 140,140);
+         }else{
+           context.drawImage(imageO,X,Y, 14,14);
+         }
+       }//end of drawXO function
+
+       canvas.addEventListener("mousedown", playGame);
 
       }
+      </script>
       <h2>did it get here?</h2>
+
   </body>
 </html>

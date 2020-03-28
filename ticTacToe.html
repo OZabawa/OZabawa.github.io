@@ -28,7 +28,7 @@
     context.fillRect(126, 0, 10, 400);
     context.fillRect(0, 252, 400, 10);
     context.fillRect(252, 0, 10, 400);
-    
+
     //Functions to play game and draw x and o
     function drawXO(player,X,Y){
       if(player % 2 == 0){
@@ -36,7 +36,7 @@
       }else{
         context.drawImage(imageO,X,Y, 80,80);
       }
-    }//end of drawXO function
+    }//end of drawXO functions
 
     function playGame(event){
       if(event.pageX <= 130 & event.pageY <=205){
@@ -45,7 +45,7 @@
           didWon[0] = player%2;
           player +=1;
         }else{
-          alert("seriously?? everyone does this!!");
+          alert("Chose a different location");
         }
       }//end of if for box1
       if(event.pageX > 142 & event.pageX <= 260 & event.pageY <=205){
@@ -54,7 +54,7 @@
             didWon[1] = player%2;
             player +=1;
         }else{
-          alert("why do you not leave peoples boxes alone?");
+          alert("Chose a different location");
         }
       }//end of if for box2
       if(event.pageX > 272 & event.pageY <=205){
@@ -63,7 +63,7 @@
           didWon[2]  = player%2;
           player+=1;
         }else{
-          alert("Chose a different location dude!!!");
+          alert("Chose a different location");
         }
       }//end of if for box3
       if(event.pageX <= 130 & event.pageY > 217 & event.pageY <= 325){
@@ -72,7 +72,7 @@
           didWon[3]  = player%2;
           player+=1;
         }else{
-          alert("Chose a different location!!");
+          alert("Chose a different location");
         }
       }//end of if for box4
       if(event.pageX > 142 & event.pageX <= 260 & event.pageY > 217 & event.pageY <= 325){
@@ -81,7 +81,7 @@
           didWon[4]  = player%2;
           player+=1;
         }else{
-          alert("This box has already been chosen. Too late");
+          alert("Chose a different location");
         }
       }//end of if for box5
       if(event.pageX > 272 & event.pageY > 217 & event.pageY <= 325){
@@ -90,7 +90,7 @@
           didWon[5]  = player%2;
           player+=1;
         }else{
-          alert("This box has already been chosen. Too late dude!!!");
+          alert("Chose a different location");
         }
       }//end of if for box6
       if(event.pageX <= 130 & event.pageY > 337){
@@ -99,7 +99,7 @@
           didWon[6] = player%2;
           player+=1;
         }else{
-          alert("oh noes!!");
+          alert("Chose a different location");
         }
       }//end of if for box7
       if(event.pageX > 142 & event.pageX <= 260 & event.pageY > 337){
@@ -108,7 +108,7 @@
           didWon[7]  = player%2;
           player+=1;
       }else{
-        alert("the other player chose this box not you");
+        alert("Chose a different location");
       }
       }//end of if for box8
       if(event.pageX > 272 & event.pageY > 337){
@@ -117,7 +117,7 @@
           didWon[8] = player%2;
           player+=1;
         }else{
-        alert("really? you know better than to take peoples boxes!!");
+        alert("Chose a different location");
         }
       }//end of if for box9
     }//playgame function
